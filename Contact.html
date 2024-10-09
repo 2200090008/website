@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Constitution Awareness</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>If you have any questions, suggestions, or feedback about the Indian Constitution Awareness Platform, feel
+            free to reach out to us using the form below.</p>
+
+        <form action="/submit-contact" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <input type="submit" value="Send Message">
+        </form>
+
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> juris@constitutionawareness.com</p>
+            <p><strong>Phone:</strong> +91 123 456 7890</p>
+            <p><strong>Address:</strong> Constitution Awareness Office, New Delhi, India</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
