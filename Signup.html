@@ -5,7 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            background: url('signup.jpg') no-repeat center center/cover;
+            background-size: 100%;
+
+            color: #333;
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-signup {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-signup:hover {
+            background-color: #45a049;
+        }
+
+        .login-link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            margin-top: 15px;
+            font-size: 24px;
+        }
+
+        .icon a {
+            margin: 0 10px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .icon a:hover {
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,19 +125,27 @@
         <div class="login-link">
             Already have an account? <a href="login.html">Log In</a>
         </div>
+
+        <div class="icon">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        </div>
     </div>
 
     <script>
         document.getElementById("signupForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent form from submitting
-
-            // Add logic to store user details, e.g., send to a server or store in localStorage
-            // For this example, just simulate a successful signup.
-
             alert("Sign up successful! Redirecting to login page...");
             window.location.href = "login.html"; // Redirect to login page after successful signup
         });
     </script>
 </body>
+
+<a href="index.html"
+    style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+    Logout
+</a>
 
 </html>

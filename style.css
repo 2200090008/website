@@ -75,49 +75,6 @@ ul li a:hover {
     color: #0800ff;
 }
 
-.search {
-    width: 350px;
-    float: left;
-    margin-left: 300px;
-}
-
-.srch {
-    font-family: 'Times New Roman';
-    width: 150px;
-    height: 40px;
-    background: transparent;
-    border: 1px solid #ff7200;
-    margin-top: 10px;
-    color: #fff;
-    border-right: none;
-    font-size: 10px;
-    float: left;
-    padding: 10px;
-    border-bottom-left-radius: 50px;
-    border-top-left-radius: 5px;
-
-}
-
-.btn {
-    width: 100px;
-    height: 40px;
-    background: hsl(23, 86%, 35%);
-    border: 2px solid #ff7200;
-    margin-top: 13px;
-    color: #fff;
-    font-size: 15px;
-    border-bottom-right-radius: 10px;
-    border-bottom-right-radius: 5px;
-}
-
-.btn:focus {
-    outline: none;
-
-}
-
-.srch:focus {
-    outline: none;
-}
 
 .content {
     width: 1300px;
@@ -465,80 +422,120 @@ body {
 }
 
 /* Styling the login container */
-.login-container {
-    width: 100%;
-    max-width: 400px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('login-bg.jpg');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100h;
+    background: url(login1.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    color: #fff;
 }
 
-/* Login title */
-.login-container h2 {
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
     text-align: center;
-    color: #ff7200;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-family: 'Times New Roman';
 }
 
-/* Input fields */
-.input-field {
+.wrapper .input-box {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ff7200;
-    background-color: transparent;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    outline: none;
+    height: 50px;
+    background: yellow;
+    margin: 30px 0;
 }
 
-/* Input focus effect */
-.input-field:focus {
-    border-color: #ffcc00;
-}
-
-/* Login button */
-.btn-login {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff7200;
+.input-box input {
+    width: 100;
+    height: 100;
+    background: transparent;
     border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
     color: #fff;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
+    padding: 20px 45px 20px 20px;
 }
 
-/* Button hover effect */
-.btn-login:hover {
-    background-color: #ffcc00;
-    color: #333;
+.input-box input::placeholder {
+    color: #fff;
 }
 
-/* Forgot password link */
-.forgot-password {
-    text-align: center;
-    margin-top: 15px;
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    transform: translate(-50%);
+    font-size: 20px;
 }
 
-.forgot-password a {
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #fff;
     text-decoration: none;
-    color: #ffcc00;
-    font-size: 14px;
-    transition: color 0.3s ease;
 }
 
-.forgot-password a:hover {
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper Signup-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
     color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
 }
 
 /* Sign-up link */
@@ -690,4 +687,399 @@ a {
 
 a:hover {
     color: #ffcc00;
+}
+
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+/* Container styling */
+body {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 100vh;
+    /* Full viewport height */
+    margin: 0;
+    /* Remove default margin */
+    background-color: #f0f0f0;
+    /* Optional: Add a background color */
+}
+
+.signup-container {
+    width: 300%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #168c4f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+/* Form heading */
+.signup-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button styling */
+.btn-signup {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Reset margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Background styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('login1.jpg') no-repeat center center/cover;
+    color: #fff;
+}
+
+/* Container for login box */
+.wrapper {
+    width: 400px;
+    padding: 40px 30px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+/* Input box styling */
+.input-box {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Remember and Forgot Password */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.remember-forgot a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Button styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 40px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #ffcc00;
+}
+
+/* Sign-up link styling */
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-link a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .wrapper {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .wrapper h1 {
+        font-size: 28px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.top-nav {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.top-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.top-nav ul li {
+    flex: 1;
+}
+
+.top-nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.top-nav ul li a:hover {
+    background-color: #575757;
+}
+
+.dashboard-container {
+    margin-top: 80px;
+    /* Push content below the nav bar */
+    padding: 20px;
+}
+
+.input-field,
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-login {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #45a049;
+}
+
+.login-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* styles.css */
+
+/* Add a full-page background image */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%), url('dashboard.jpg');
+    /* Replace with the path to your image */
+    background-size: cover;
+    /* Ensures the image covers the entire page */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Keeps the background fixed on scroll */
+    color: #3cf467;
+    /* Set text color to white for contrast */
+}
+
+.middle-nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background for better readability */
+    padding: 10px;
+    text-align: center;
+}
+
+.middle-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.middle-nav ul li {
+    margin: 0 15px;
+}
+
+.middle-nav ul li a {
+    color: hwb(64 34% 4%);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.middle-nav ul li a:hover {
+    color: #FFD700;
+    /* Changes link color on hover */
+}
+
+.dashboard-container {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adds a translucent background for readability */
+    max-width: 80%;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.dashboard-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.middle-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.middle-nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.middle-nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.middle-nav ul li a:hover {
+    color: #0056b3;
 }

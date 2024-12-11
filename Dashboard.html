@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Set background image for the entire page */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('dashboard.jpg') no-repeat center center/cover;
+            /* Add your image path here */
+            color: #fff;
+            /* Text color */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Makes the content stretch from top to bottom */
+        }
+
+        /* Dashboard container styles */
+        .dashboard-container {
+            text-align: center;
+            padding: 50px;
+            margin-top: 1px;
+            /* Adjust if necessary */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black background for readability */
+            border-radius: 10px;
+        }
+
+        /* Navigation Bar styles */
+        .middle-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Semi-transparent black background */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .middle-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .middle-nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .middle-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .middle-nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is the main dashboard area where you can access different modules based on your role.</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="middle-nav">
+        <ul>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="educator.html">Educator</a></li>
+            <li><a href="citizen.html">Citizen</a></li>
+            <li><a href="legalexpert.html">Legal Expert</a></li>
+        </ul>
+    </nav>
+</body>
+
+
+<a href="login.html"
+    style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+    Logout
+</a>
+
+</html>

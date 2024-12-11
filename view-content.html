@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Submitted Content</title>
+</head>
+
+<body>
+    <h1>Submitted Content</h1>
+    <div id="content-list"></div>
+
+    <script>
+        // Fetch and display content
+        fetch('http://localhost:3000/get-content') // Replace with your API endpoint
+            .then(response => response.json())
+            .then(data => {
+                const contentList = document.getElementById('content-list');
+                if (data.length === 0) {
+                    contentList.innerHTML = '<p>No content submitted yet.</p>';
+                    return;
+                }
+                data.forEach(item => {
+                    const contentDiv = document.createElement('div');
+                    contentDiv.innerHTML = `
+                        <h3>${item.title}</h3>
+                        <p><strong>Category:</strong> ${item.category || 'Uncategorized'}</p>
+                        <p><strong>Submitted By:</strong> ${item.author || 'Anonymous'}</p>
+                        <p>${item.content}</p>
+                        <hr>
+                    `;
+                    contentList.appendChild(contentDiv);
+                });
+            })
+            .catch(err => console.error('Error fetching content:', err));
+    </script>
+</body>
+
+</html>

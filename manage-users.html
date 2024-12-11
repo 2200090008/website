@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage All Users</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .content h1 {
+            text-align: center;
+        }
+
+        .form-section {
+            margin: 20px 0;
+        }
+
+        .form-section input,
+        .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #45a049;
+        }
+
+        .user-list {
+            margin-top: 20px;
+        }
+
+        .user-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .user-list table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        .user-list th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .user-list td button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .user-list td button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <h1>Manage All Users</h1>
+
+            <!-- Form to add new user -->
+            <div class="form-section">
+                <h2>Add New User</h2>
+                <form id="userForm">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <select id="role" required>
+                        <option value="">Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="educator">Educator</option>
+                        <option value="citizen">Citizen</option>
+                        <option value="legal_expert">Legal Expert</option>
+                    </select>
+                    <button type="button" id="addUserButton">Add User</button>
+                </form>
+            </div>
+
+            <!-- Section for displaying existing users -->
+            <div class="user-list">
+                <h2>Manage Existing Users</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <!-- Dynamic list of users -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize an array to hold user data
+        let users = [];
+
+        // Load users from localStorage on page load
+        window.onload = function () {
+            const savedUsers = localStorage.getItem("users");
+            if (savedUsers) {
+                users = JSON.parse(savedUsers);
+            }
+            renderUsers();
+        };
+
+        // Function to render users in the table
+        function renderUsers() {
+            const userTableBody = document.getElementById("userTableBody");
+            userTableBody.innerHTML = ""; // Clear table body
+
+            users.forEach((user, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td>${user.role}</td>
+                    <td>
+                        <button onclick="editUser(${index})">Edit</button>
+                        <button onclick="deleteUser(${index})">Delete</button>
+                    </td>
+                `;
+                userTableBody.appendChild(row);
+            });
+        }
+
+        // Function to delete a user
+        function deleteUser(index) {
+            if (confirm("Are you sure you want to delete this user?")) {
+                users.splice(index, 1); // Remove user from array
+                localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
+                renderUsers(); // Re-render table
+            }
+        }
+
+        // Function to edit a user
+        function editUser(index) {
+            const user = users[index];
+            document.getElementById("username").value = user.username;
+            document.getElementById("email").value = user.email;
+            document.getElementById("password").value = ""; // Password reset not shown
+            document.getElementById("role").value = user.role;
+
+            // Replace Add User button with Save Changes button
+            const addUserButton = document.getElementById("addUserButton");
+            addUserButton.textContent = "Save Changes";
+            addUserButton.onclick = function () {
+                saveChanges(index);
+            };
+        }
+
+        // Function to save changes to a user
+        function saveChanges(index) {
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value; // Not used in this example
+            const role = document.getElementById("role").value;
+
+            if (!username || !email || !role) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            users[index] = { username, email, role };
+
+            resetForm();
+            localStorage.setItem("users", JSON.stringify(users)); // Update localStorage
+            renderUsers();
+        }
+
+        // Function to reset form
+        function resetForm() {
+            document.getElementById("username").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("role").value = "";
+
+            const addUserButton = document.getElementById("addUserButton");
+            addUserButton.textContent = "Add User";
+            addUserButton.onclick = addUser;
+        }
+
+        // Function to add a new user
+        function addUser() {
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const role = document.getElementById("role").value;
+
+            if (!username || !email || !password || !role) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            users.push({ username, email, role });
+
+            resetForm();
+            localStorage.setItem("users", JSON.stringify(users)); // Save to localStorage
+            renderUsers();
+        }
+
+        // Add event listener for Add User button
+        document.getElementById("addUserButton").addEventListener("click", addUser);
+    </script>
+
+    <a href="admin.html"
+        style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+        Logout
+    </a>
+
+</body>
+
+</html>

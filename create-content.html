@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Creation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: hsl(34, 85%, 75%);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .content-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .content-upload {
+            background-color: #f31bcb;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .content-upload:hover {
+            background-color: #ec1c1c;
+        }
+
+        .content-info {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #f31bcb;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Download Section Styling */
+        .download-section {
+            margin-top: 30px;
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .download-section h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .download-link {
+            display: block;
+            margin: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .download-link:hover {
+            background-color: #45a049;
+        }
+
+        a.logout {
+            position: fixed;
+            bottom: 10px;
+            right: 12px;
+            color: hwb(131 11% 5%);
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: 2px solid #f31bcb;
+            border-radius: 5px;
+        }
+
+        /* Styling for the PDF view iframe */
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            margin-top: 20px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Content Creation</h1>
+
+    <div class="content-box">
+        <p>Educators can create and upload educational content such as articles, videos, and presentations related to
+            the Indian Constitution, its framework, and fundamental rights.</p>
+    </div>
+
+    <!-- Download Section -->
+    <div class="download-section">
+        <h2>Download and View Articles</h2>
+        <p>Click on the links below to download and view articles related to the Indian Constitution:</p>
+
+        <!-- Correct File Paths -->
+        <a href="/downloads/constitution-framework.pdf" class="download-link" download>Constitution Framework</a>
+        <a href="/downloads/fundamental-rights.pdf" class="download-link" download>Fundamental Rights</a>
+        <a href="/downloads/directive-principles.pdf" class="download-link" download>Directive Principles of State
+            Policy</a>
+        <a href="/downloads/citizenship.pdf" class="download-link" download>Citizenship</a>
+    </div>
+
+    <!-- PDF View Section (Initially hidden) -->
+    <div class="pdf-viewer-section" id="pdfViewerSection" style="display:none;">
+        <h2>Viewing the Document:</h2>
+        <iframe id="pdfViewer" class="pdf-viewer" src="" frameborder="0"></iframe>
+    </div>
+
+    <!-- Logout Link -->
+    <a href="educator.html" class="logout">Logout</a>
+
+    <script>
+        // Function to update the iframe source for viewing the PDF after download link click
+        const downloadLinks = document.querySelectorAll('.download-link');
+        const pdfViewer = document.getElementById('pdfViewer');
+        const pdfViewerSection = document.getElementById('pdfViewerSection');
+
+        downloadLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                // Preventing the default download behavior (to open the file in the iframe instead)
+                event.preventDefault();
+
+                // Show the iframe section
+                pdfViewerSection.style.display = 'block';
+
+                // Set the source of the iframe to the downloaded file
+                pdfViewer.src = link.getAttribute('href');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

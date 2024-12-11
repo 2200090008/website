@@ -5,14 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citizen Dashboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+
+    <!-- CSS Code inside the style tag -->
+    <style>
+        /* Basic Styles for the Citizen Dashboard */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: hwb(160 90% 7%);
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: hsl(137, 36%, 68%);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #9d7ee4;
+            text-align: center;
+        }
+
+        h2 {
+            color: hsl(180, 5%, 4%);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        li {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            display: block;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <div class="dashboard-container">
         <h1>Welcome, Citizen</h1>
         <p>Explore content and participate in discussions about the Indian Constitution.</p>
-        <a href="logout.html">Logout</a>
+
+        <!-- Link to the Introduction Page -->
+        <section id="intro-constitution">
+            <h2 onclick="window.location.href='introduction.html'">Introduction to the Indian Constitution</h2>
+        </section>
+
+        <!-- Fundamental Rights Section -->
+        <section id="fundamental-rights">
+            <h2 onclick="window.location.href='fundamental-rights.html'">Fundamental Rights</h2>
+            <p>The Constitution of India guarantees six fundamental rights to all citizens, ensuring equality, freedom,
+                and justice:</p>
+
+        </section>
+
+        <!-- Fundamental Duties Section -->
+        <section id="fundamental-duties">
+            <h2 onclick="window.location.href='fundamental-duties.html'">Fundamental Duties</h2>
+            <p>The Constitution outlines the fundamental duties of citizens, which promote responsibility towards the
+                country. These include:</p>
+
+
+
+        </section>
+
+
+
+        <a href="contact.html">Contact Us</a>
+
+        <a href="dashboard.html"
+            style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+            Logout
+        </a>
+
+
     </div>
 </body>
 

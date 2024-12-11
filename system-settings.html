@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Settings - Indian Constitution Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .section h2 {
+            margin: 0 0 10px;
+            color: #444;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input,
+        select,
+        button {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #008cba;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f73;
+        }
+
+        .logout {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background-color: #e03571;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>System Settings</h1>
+
+        <!-- General Settings -->
+        <div class="section">
+            <h2>General Settings</h2>
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+            <label>
+                <input type="checkbox" id="notifications"> Enable Notifications
+            </label>
+        </div>
+
+        <!-- Language Settings -->
+        <div class="section">
+            <h2>Language Settings</h2>
+            <label for="language">Preferred Language:</label>
+            <select id="language">
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+                <option value="telugu">Telugu</option>
+            </select>
+        </div>
+
+        <!-- Account Settings -->
+        <div class="section">
+            <h2>Account Settings</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" value="Citizen123">
+            <label>
+                <input type="checkbox" id="email-updates"> Receive Email Updates
+            </label>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="section">
+            <h2>Security Settings</h2>
+            <label for="password">Change Password:</label>
+            <input type="password" id="password" placeholder="Enter new password">
+            <label>
+                <input type="checkbox" id="two-factor"> Enable Two-Factor Authentication
+            </label>
+        </div>
+
+        <!-- Privacy Settings -->
+        <div class="section">
+            <h2>Privacy Settings</h2>
+            <label>
+                <input type="checkbox" id="allow-tracking"> Allow Tracking
+            </label>
+            <label>
+                <input type="checkbox" id="data-sharing"> Enable Data Sharing
+            </label>
+        </div>
+
+        <!-- Advanced Settings -->
+        <div class="section">
+            <h2>Advanced Settings</h2>
+            <label>
+                <input type="checkbox" id="dev-mode"> Developer Mode
+            </label>
+            <button id="reset-settings">Reset All Settings</button>
+        </div>
+
+        <button id="save-settings">Save Changes</button>
+    </div>
+    <script>
+        // Save settings and redirect to settings-summary.html
+        document.getElementById("save-settings").addEventListener("click", function () {
+            const settings = {
+                theme: document.getElementById("theme").value,
+                notifications: document.getElementById("notifications").checked,
+                language: document.getElementById("language").value,
+                username: document.getElementById("username").value,
+                emailUpdates: document.getElementById("email-updates").checked,
+                password: document.getElementById("password").value,
+                twoFactor: document.getElementById("two-factor").checked,
+                allowTracking: document.getElementById("allow-tracking").checked,
+                dataSharing: document.getElementById("data-sharing").checked,
+                devMode: document.getElementById("dev-mode").checked
+            };
+
+            // Save settings to localStorage
+            localStorage.setItem("settings", JSON.stringify(settings));
+
+            // Save current scroll position
+            localStorage.setItem("scrollPosition", window.scrollY);
+
+            // Redirect to the summary page
+            window.location.href = "settings-summary.html";
+        });
+
+        // Reset settings to default
+        document.getElementById("reset-settings").addEventListener("click", function () {
+            document.getElementById("theme").value = "light";
+            document.getElementById("notifications").checked = false;
+            document.getElementById("language").value = "english";
+            document.getElementById("username").value = "";
+            document.getElementById("email-updates").checked = false;
+            document.getElementById("password").value = "";
+            document.getElementById("two-factor").checked = false;
+            document.getElementById("allow-tracking").checked = false;
+            document.getElementById("data-sharing").checked = false;
+            document.getElementById("dev-mode").checked = false;
+
+            alert("All settings have been reset!");
+        });
+
+        // Restore scroll position on page load
+        window.addEventListener("DOMContentLoaded", function () {
+            const scrollPosition = localStorage.getItem("scrollPosition");
+            if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition, 10));
+            }
+        });
+    </script>
+
+
+    <a href="admin.html"
+        style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+        Logout
+    </a>
+</body>
+
+</html>

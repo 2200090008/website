@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Moderation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: hsl(120, 69%, 49%);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .submitted-content {
+            margin-top: 30px;
+        }
+
+        .submitted-content h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .submitted-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .submitted-content li {
+            background-color: #e9f5e9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Content Submission</h2>
+
+        <form id="contentForm">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+                <div class="error" id="titleError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+                <div class="error" id="contentError"></div>
+            </div>
+
+            <button type="submit">Submit Content</button>
+            <div class="success" id="successMessage"></div>
+        </form>
+
+        <!-- Section to display submitted content -->
+        <div class="submitted-content">
+            <h3>Submitted Content</h3>
+            <ul id="submittedContentList"></ul>
+        </div>
+    </div>
+
+    <a href="admin.html"
+        style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+        Logout
+    </a>
+
+    <script>
+        // Content form validation and submission logic
+        document.getElementById("contentForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Reset previous errors
+            document.getElementById("titleError").textContent = "";
+            document.getElementById("contentError").textContent = "";
+            document.getElementById("successMessage").textContent = "";
+
+            let isValid = true;
+
+            // Validate title
+            const title = document.getElementById("title").value.trim();
+            if (title === "") {
+                document.getElementById("titleError").textContent = "Title is required.";
+                isValid = false;
+            }
+
+            // Validate content
+            const content = document.getElementById("content").value.trim();
+            if (content === "") {
+                document.getElementById("contentError").textContent = "Content is required.";
+                isValid = false;
+            }
+
+            // If valid, show success message and add submitted content to the list
+            if (isValid) {
+                document.getElementById("successMessage").textContent = "Content submitted successfully!";
+
+                // Append the submitted content to the list
+                const contentList = document.getElementById("submittedContentList");
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `<strong>${title}</strong>: ${content}`;
+                contentList.appendChild(listItem);
+
+                // Clear the form fields
+                document.getElementById("contentForm").reset();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

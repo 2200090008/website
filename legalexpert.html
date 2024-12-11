@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Expert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .submit-btn {
+            background-color: #2ecc71;
+            border: none;
+        }
+
+        .submit-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Legal Expert</h1>
+        <p>
+            As a Legal Expert, you are entrusted with offering legal insights, updating constitutional content,
+            and providing guidance to citizens.
+        </p>
+
+        <!-- Update Content Section -->
+        <section>
+            <h2>Update Constitutional Content</h2>
+            <p>
+                Edit and add information to ensure that the content on the platform is up-to-date and accurate.
+            </p>
+
+            <!-- Form for Updating Content -->
+            <form action="/submitContent" method="POST">
+                <label for="title">Content Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter the title" required />
+
+                <label for="description">Content Description:</label>
+                <textarea id="description" name="description" placeholder="Enter the description" required></textarea>
+
+                <button type="submit" class="btn submit-btn">Submit Content</button>
+            </form>
+        </section>
+
+        <!-- Provide Guidance Section -->
+        <section>
+            <h2>Provide Guidance</h2>
+            <p>
+                Help citizens understand their legal rights by answering their queries and sharing your expertise.
+            </p>
+            <a href="guidance-form.html" class="btn">Provide Guidance</a>
+        </section>
+
+        <!-- Upcoming Legal Workshops Section -->
+        <section>
+            <h2>Upcoming Legal Workshops</h2>
+            <p>
+                Stay updated on the latest workshops and events aimed at increasing constitutional awareness.
+            </p>
+            <a href="workshops.html" class="btn">View Workshops</a>
+        </section>
+    </div>
+</body>
+
+<a href="dashboard.html"
+    style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+    Logout
+</a>
+
+</html>

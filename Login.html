@@ -4,38 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>Login Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url('login.jpg') no-repeat center center/cover;
+            /* Background image */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Transparent black overlay */
+            color: #333;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Semi-transparent white background for the form */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .wrapper h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 35px;
+            /* Space for icon */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .rember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .rember-forgot a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .rember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .Signup-link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .Signup-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .Signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="login-container">
-        <h2>Log In</h2>
+    <div class="wrapper">
         <form id="loginForm">
-            <label for="email">Email:</label>
-            <input type="email" id="loginEmail" class="input-field" required>
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="loginPassword" class="input-field" required>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="rember-forgot">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="forgot-password.html">Forgot Password</a>
+            </div>
 
-            <input type="submit" class="btn-login" value="Log In">
+            <button type="submit" class="btn">Login</button>
+            <div class="Signup-link">
+                <p>Don't have an account? <a href="signup.html">Signup</a></p>
+            </div>
         </form>
-        <div class="signup-link">
-            Don't have an account? <a href="signup.html">Sign Up</a>
-        </div>
     </div>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form from submitting
 
-            // Add logic to authenticate user
-            // For this example, just simulate a successful login.
+
+    <script>
+        // Add an event listener to the form
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting to the server
+
+            const password = document.getElementById("password").value;
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long, contain one uppercase letter, one lowercase letter, one number, and one special character.");
+                return;
+            }
+
+            // Simulate a successful login and redirect to the dashboard
             alert("Login successful!");
+            window.location.href = "dashboard.html"; // Redirect to dashboard page
         });
     </script>
 
-
+    <a href="index.html"
+        style="position: fixed; bottom: 10px; right: 12px; color: rgb(58, 32, 226); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+        Logout
+    </a>
 </body>
 
 </html>

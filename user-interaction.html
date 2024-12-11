@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Interaction - Indian Constitution Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-container h3 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .logout-btn {
+            position: fixed;
+            bottom: 10px;
+            right: 12px;
+            color: hwb(131 11% 5%);
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            text-decoration: none;
+            border: 2px solid #f31bcb;
+            border-radius: 5px;
+        }
+
+        .logout-btn:hover {
+            background-color: #f31bcb;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>User Interaction - Indian Constitution Awareness</h1>
+        <p>Interact with the platform, submit feedback, and ask questions about the Indian Constitution.</p>
+    </header>
+
+    <main>
+
+        <div class="form-container">
+            <h3>Submit Your Query or Feedback</h3>
+            <form id="user-interaction-form">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="query">Your Query / Feedback:</label>
+                    <textarea id="query" name="query" placeholder="Enter your query or feedback" rows="4"
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="topic">Select a Topic:</label>
+                    <select id="topic" name="topic" required>
+                        <option value="Fundamental Rights">Fundamental Rights</option>
+                        <option value="Duties of Citizens">Duties of Citizens</option>
+                        <option value="Judiciary and Constitution">Judiciary and Constitution</option>
+                        <option value="Constitutional Amendments">Constitutional Amendments</option>
+                    </select>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Indian Constitution Awareness Platform</p>
+    </footer>
+
+    <!-- Logout Button -->
+    <a href="educator.html" class="logout-btn">Logout</a>
+
+    <script>
+        // Form submission handler
+        document.getElementById('user-interaction-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const query = document.getElementById('query').value;
+            const topic = document.getElementById('topic').value;
+
+            alert(`Thank you, ${name}! Your query/feedback on "${topic}" has been submitted successfully.`);
+
+            // Clear the form fields after submission
+            document.getElementById('user-interaction-form').reset();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .settings {
+            margin-top: 20px;
+        }
+
+        .settings p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .back-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #008cba;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Settings Summary</h1>
+        <div class="settings" id="settings-summary">
+            <!-- Settings will be dynamically inserted here -->
+        </div>
+        <button class="back-btn" id="go-back">Go Back</button>
+    </div>
+
+    <script>
+        // Retrieve settings from localStorage
+        const settings = JSON.parse(localStorage.getItem("userSettings"));
+
+        // Display settings
+        const summaryDiv = document.getElementById("settings-summary");
+        if (settings) {
+            summaryDiv.innerHTML = `
+                <p><strong>Theme:</strong> ${settings.theme}</p>
+                <p><strong>Notifications:</strong> ${settings.notifications ? "Enabled" : "Disabled"}</p>
+                <p><strong>Language:</strong> ${settings.language}</p>
+                <p><strong>Username:</strong> ${settings.username}</p>
+                <p><strong>Email Updates:</strong> ${settings.emailUpdates ? "Enabled" : "Disabled"}</p>
+                <p><strong>Two-Factor Authentication:</strong> ${settings.twoFactor ? "Enabled" : "Disabled"}</p>
+                <p><strong>Allow Tracking:</strong> ${settings.allowTracking ? "Enabled" : "Disabled"}</p>
+                <p><strong>Data Sharing:</strong> ${settings.dataSharing ? "Enabled" : "Disabled"}</p>
+                <p><strong>Developer Mode:</strong> ${settings.devMode ? "Enabled" : "Disabled"}</p>
+            `;
+        } else {
+            summaryDiv.innerHTML = "<p>No settings saved.</p>";
+        }
+
+        // Go back to system-settings.html
+        document.getElementById("go-back").addEventListener("click", function () {
+            window.location.href = "system-settings.html";
+        });
+    </script>
+</body>
+
+</html>

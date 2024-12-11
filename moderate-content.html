@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderate Content - Indian Constitution Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .content-list {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-list h3 {
+            margin-top: 0;
+        }
+
+        .content-item {
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-item h4 {
+            margin-top: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .approve-button,
+        .reject-button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .approve-button {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .approve-button:hover {
+            background-color: #45a049;
+        }
+
+        .reject-button {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .reject-button:hover {
+            background-color: #e53935;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Moderate Content - Indian Constitution Awareness</h1>
+        <p>Review and approve/reject submitted content for educational purposes.</p>
+    </header>
+
+    <main>
+
+        <section class="content-list">
+            <h3>Pending Content for Review</h3>
+
+            <!-- Example of content awaiting moderation -->
+            <div class="content-item">
+                <h4>Understanding Fundamental Rights</h4>
+                <p>This article provides an overview of the fundamental rights under the Indian Constitution, explaining
+                    their importance in ensuring equality and justice for all citizens.</p>
+                <div class="action-buttons">
+                    <button class="approve-button"
+                        onclick="approveContent('Understanding Fundamental Rights')">Approve</button>
+                    <button class="reject-button"
+                        onclick="rejectContent('Understanding Fundamental Rights')">Reject</button>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <h4>The Role of Judiciary in the Constitution</h4>
+                <p>This video explains the role of the judiciary in the Indian Constitution and how it upholds the
+                    principles of justice, fairness, and constitutional supremacy.</p>
+                <div class="action-buttons">
+                    <button class="approve-button"
+                        onclick="approveContent('The Role of Judiciary in the Constitution')">Approve</button>
+                    <button class="reject-button"
+                        onclick="rejectContent('The Role of Judiciary in the Constitution')">Reject</button>
+                </div>
+            </div>
+
+            <!-- Additional content items can be added dynamically here -->
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Indian Constitution Awareness Platform</p>
+    </footer>
+
+    <script>
+        // Function to handle content approval
+        function approveContent(contentTitle) {
+            alert("You have approved the content: " + contentTitle);
+            // Logic for marking the content as approved (e.g., save to a database)
+        }
+
+        // Function to handle content rejection
+        function rejectContent(contentTitle) {
+            alert("You have rejected the content: " + contentTitle);
+            // Logic for marking the content as rejected (e.g., delete or send for review)
+        }
+    </script>
+
+</body>
+
+<a href="educator.html"
+    style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+    Logout
+</a>
+
+
+</html>

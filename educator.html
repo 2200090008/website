@@ -5,15 +5,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educator Dashboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Basic reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Background image and semi-transparent overlay */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('educator.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            /* Adjust transparency of the background */
+            z-index: -1;
+            /* Places the background behind content */
+        }
+
+        .dashboard-container {
+            background-color: transparent;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            margin-top: 20px;
+            position: absolute;
+            top: 10%;
+            /* Keeps the container near the top of the page */
+            left: 50%;
+            transform: translateX(-50%);
+            /* Center the container horizontally */
+        }
+
+        .welcome-section {
+            margin-bottom: 30px;
+            text-align: center;
+            /* Center the text horizontally */
+        }
+
+        h1 {
+            color: black;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: black;
+            font-size: 1.5rem;
+        }
+
+        /* Section links styling */
+        .section-link {
+            display: block;
+            background-color: #f31bcb;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .section-link:hover {
+            background-color: #ec1c1c;
+            text-decoration: underline;
+        }
+
+        /* Logout link styling */
+        a {
+            color: #ec1c1c;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="background"></div> <!-- Background image overlay -->
     <div class="dashboard-container">
-        <h1>Welcome, Educator</h1>
-        <p>Here, you can create educational content and conduct interactive sessions.</p>
-        <a href="logout.html">Logout</a>
+        <div class="welcome-section">
+            <h1>Welcome, Educator</h1>
+            <p>Here, you can create educational content and conduct interactive sessions.</p>
+        </div>
+
+        <!-- Content Creation -->
+        <a href="create-content.html" class="section-link">Content Creation</a>
+
+
+
+        <!-- Interactive Sessions -->
+        <a href="interactive-sessions.html" class="section-link">Interactive Sessions</a>
+
+        <!-- Content Moderation -->
+        <a href="moderate-content.html" class="section-link">Content Moderation</a>
+
+        <!-- Statistics and Reports -->
+        <a href="reports.html" class="section-link">Statistics and Reports</a>
+
+        <!-- User Interaction -->
+        <a href="user-interaction.html" class="section-link">User Interaction</a>
+
     </div>
+
+    <a href="dashboard.html"
+        style="position: fixed; bottom: 10px; right: 12px; color: hwb(131 11% 5%); font-size: 1.2rem; padding: 10px 15px; text-decoration: none; border: 2px solid #f31bcb; border-radius: 5px;">
+        Logout
+    </a>
+
+
 </body>
 
 </html>
